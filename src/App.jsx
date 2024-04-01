@@ -54,66 +54,70 @@ function App() {
       image:
         "https://res.cloudinary.com/nxb/image/upload/v1692618032/Mern_Stack_web_thumbnail_a889c035be.jpg",
       title: "Mastering the MERN Stack",
-      price: "Rs. 35000",
-      duration: "4 months",
+      price: 35000,
+      duration: 4,
     },
     {
       id: "2",
       image:
         "https://res.cloudinary.com/nxb/image/upload/v1692879160/Dsml_Web_Thumbnail_fca5c41b8c.jpg",
       title: "Master Data Science and",
-      price: "Rs. 35000",
-      duration: "4 months",
+      price: 35000,
+      duration: 4,
     },
     {
       id: "3",
       image:
         "https://res.cloudinary.com/nxb/image/upload/v1692358589/next_js_thumbnail_01_a4fee54e35_5a23409939.jpg",
       title: "Become a Full Stack React",
-      price: "Rs. 50000",
-      duration: "4 months",
+      price: 50000,
+      duration: 4,
     },
     {
       id: "4",
       image:
         "https://res.cloudinary.com/nxb/image/upload/v1692359426/flutter_and_dart_thumbnail_01_71783e11bc_c2559919a8.jpg",
       title: "Flutter App Development",
-      price: "Rs. 35000",
-      duration: "3 months",
+      price: 35000,
+      duration: 3,
     },
     {
       id: "5",
       image:
         "https://res.cloudinary.com/nxb/image/upload/v1692879228/React_Native_Web_Thumbnail_9ba2cfc6a2.jpg",
       title: "React Native for Android",
-      price: "Rs.30000",
-      duration: "3 months",
+      price: 30000,
+      duration: 3,
     },
     {
       id: "6",
       image:
         "https://res.cloudinary.com/nxb/image/upload/v1692878853/Ai_and_Dl_Web_Thumbnail_d6b748ae69.jpg",
       title: "Applied AI: Practical Deep",
-      price: "Rs. 35000",
-      duration: "3 months",
+      price: 35000,
+      duration: 3,
     },
     {
       id: "7",
       image:
         "https://res.cloudinary.com/nxb/image/upload/v1692360561/data_analytics_01_e2c194f9be_aae34372ea.png",
       title: "Data Analytics and Business",
-      price: "Rs. 35000",
-      duration: "3 months",
+      price: 35000,
+      duration: 3,
     },
     {
       id: "8",
       image:
         "https://res.cloudinary.com/nxb/image/upload/v1692703724/Django_with_React_Web_Thumbnail_a1fa096197.jpg",
       title: "Full Stack Web Development",
-      price: "Rs. 48000",
-      duration: "6 months",
+      price: 48000,
+      duration: 6,
     },
   ];
+
+  let cheapCourse = products.filter(x => x.price < 40000);
+
+  let shortCourse = products.filter(x => x.duration <= 4);
 
   return (
     <div className=" ">
@@ -257,7 +261,7 @@ function App() {
 
         <div className="container">
           <div className="row row-cols-2 row-cols-md-4">
-            {products.map((product) => (
+            {shortCourse.map((product) => (
               <div className="col" key={product.id}>
                 <div className="card border-0 card-hover-border cursor-pointer">
                   <img src={product.image} className="card-img-top" alt="..." />
@@ -266,14 +270,14 @@ function App() {
                       NEXUSBERRY TRAINING & SOLUTIONS
                     </h6>
                     <hr />
-                    <p className="card-text text-muted d-inline m-1 price">
+                    <p className="card-text text-muted d-inline m-1 price"> Rs. 
                       {product.price}
                     </p>
                     <button
                       type="button"
                       className="btn btn-buy btn-sm float-end m-1 mb-2"
                     >
-                      {product.duration}
+                      {product.duration} months
                     </button>
                     <p className="mt-3">
                       <a
